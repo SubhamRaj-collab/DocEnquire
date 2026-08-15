@@ -11,6 +11,9 @@ class MarkdownParser(BaseParser):
         with open(file_path, encoding="utf-8", errors="replace") as f:
             content = f.read()
 
+        if not content.strip():
+            return []
+
         md = MarkdownIt()
         tokens = md.parse(content)
 
@@ -64,7 +67,66 @@ class MarkdownParser(BaseParser):
                         )
                     )
                     idx += 1
+                i += 1
+                continue
+
+            if token.type == "bullet_list_open" or token.type == "ordered_list_open":
+                list_items = []
+                i += 1
+                while i < len(tokens) and token.type not in ("bullet_list_close", "ordered_list_close"):
+                    token = tokens[i]
+                    if token.type == "inline":
+                        item_text = token.content.strip()
+                        if item_text:
+                            list_items.append(f"- {item_text}")
+                    i += 1
+                if list_items:
+                    segments.append(
+                        ParsedSegment(
+                            text="\n".join(list_items),
+                            section_title=current_section,
+                            paragraph_index=idx,
+                        )
+                    )
+                    idx += 1
+                continue
+
+            if token.type == "blockquote_open":
+                quote_parts = []
+                i += 1
+                while i < len(tokens) and tokens[i].type != "blockquote_close":
+                    if tokens[i].type == "inline":
+                        quote_parts.append(tokens[i].content.strip())
+                    i += 1
+                if quote_parts:
+                    segments.append(
+                        ParsedSegment(
+                            text="\n".join(quote_parts),
+                            section_title=current_section,
+                            paragraph_index=idx,
+                        )
+                    )
+                    idx += 1
+                i += 1
+                continue
+
+            if token.type == "html_block":
+                text = token.content.strip()
+                if text:
+                    segments.append(
+                        ParsedSegment(
+                            text=text,
+                            section_title=current_section,
+                            paragraph_index=idx,
+                        )
+                    )
+                    idx += 1
 
             i += 1
+
+        if not segments and content.strip():
+            segments.append(
+                ParsedSegment(text=content.strip(), paragraph_index=0)
+            )
 
         return segments

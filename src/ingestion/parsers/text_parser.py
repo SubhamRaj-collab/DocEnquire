@@ -11,6 +11,9 @@ class TextParser(BaseParser):
         with open(file_path, "rb") as f:
             raw = f.read()
 
+        if not raw.strip():
+            return []
+
         detected = chardet.detect(raw)
         encoding = detected.get("encoding") or "utf-8"
         content = raw.decode(encoding, errors="replace")
@@ -28,5 +31,8 @@ class TextParser(BaseParser):
                     paragraph_index=idx,
                 )
             )
+
+        if not segments and content.strip():
+            segments.append(ParsedSegment(text=content.strip(), paragraph_index=0))
 
         return segments
