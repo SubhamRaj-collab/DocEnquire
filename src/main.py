@@ -2,7 +2,7 @@ from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, Response
 
 from src.core.config import get_settings, load_prompt
 from src.core.exceptions import (
@@ -12,6 +12,9 @@ from src.core.exceptions import (
     UnsupportedFormatError,
 )
 from src.core.logging import setup_logging
+from src.core.metrics import metrics_response
+from src.core.middleware import RequestObservabilityMiddleware
+from src.core.job_store import PostgresJobStore
 from src.ingestion.parsers.registry import ParserRegistry
 from src.ingestion.pipeline import IngestionPipeline
 from src.llm.factory import ProviderFactory
@@ -29,6 +32,10 @@ async def lifespan(app: FastAPI):
 
     settings = get_settings()
     app.state.settings = settings
+    job_store = PostgresJobStore(settings.database_url) if settings.database_url else None
+    if job_store:
+        job_store.ensure_schema()
+    app.state.job_store = job_store
 
     app.state.llm = ProviderFactory.create_llm(settings)
     embedder = ProviderFactory.create_embedder(settings)
@@ -37,6 +44,8 @@ async def lifespan(app: FastAPI):
     app.state.vector_store = ChromaStore(
         persist_directory=settings.chroma_persist_dir,
         embedding_function=embedder.langchain_embeddings,
+        host=settings.chroma_host,
+        port=settings.chroma_port,
     )
 
     parser_registry = ParserRegistry()
@@ -50,6 +59,8 @@ async def lifespan(app: FastAPI):
         file_store=app.state.file_store,
         chunk_size=settings.chunk_size,
         chunk_overlap=settings.chunk_overlap,
+        job_store=job_store,
+        redact_personal_data=settings.redact_pii,
     )
 
     retriever = ChromaRetriever(app.state.vector_store)
@@ -61,6 +72,7 @@ async def lifespan(app: FastAPI):
         llm_provider=app.state.llm,
         citation_parser=CitationParser(),
         system_prompt=system_prompt,
+        redact_personal_data=settings.redact_pii,
     )
 
     yield
@@ -81,6 +93,12 @@ def create_app() -> FastAPI:
         allow_methods=["*"],
         allow_headers=["*"],
     )
+    app.add_middleware(RequestObservabilityMiddleware)
+
+    @app.get("/metrics", include_in_schema=False)
+    async def prometheus_metrics():
+        body, content_type = metrics_response()
+        return Response(content=body, media_type=content_type)
 
     @app.exception_handler(UnsupportedFormatError)
     async def unsupported_format_handler(request, exc):
@@ -92,7 +110,10 @@ def create_app() -> FastAPI:
 
     @app.exception_handler(LLMProviderError)
     async def llm_error_handler(request, exc):
-        return JSONResponse(status_code=502, content={"error": "LLM provider error", "detail": str(exc)})
+        return JSONResponse(
+            status_code=502,
+            content={"error": "LLM provider error", "detail": str(exc)},
+        )
 
     @app.exception_handler(FileTooLargeError)
     async def file_too_large_handler(request, exc):

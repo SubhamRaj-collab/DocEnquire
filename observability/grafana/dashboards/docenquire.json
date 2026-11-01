@@ -1,0 +1,54 @@
+{
+  "title": "DocEnquire service health",
+  "uid": "docenquire-health",
+  "schemaVersion": 39,
+  "version": 1,
+  "refresh": "10s",
+  "panels": [
+    {
+      "id": 1,
+      "title": "Requests / second",
+      "type": "timeseries",
+      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 0 },
+      "targets": [
+        { "expr": "sum by (path) (rate(rag_http_requests_total[5m]))", "legendFormat": "{{path}}" }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "HTTP errors / second",
+      "type": "timeseries",
+      "gridPos": { "h": 8, "w": 12, "x": 12, "y": 0 },
+      "targets": [
+        { "expr": "sum by (path) (rate(rag_http_errors_total[5m]))", "legendFormat": "{{path}}" }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Request latency (p95)",
+      "type": "timeseries",
+      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 8 },
+      "targets": [
+        { "expr": "histogram_quantile(0.95, sum by (le, path) (rate(rag_http_request_duration_seconds_bucket[5m])))", "legendFormat": "{{path}}" }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Time to first token (p95)",
+      "type": "timeseries",
+      "gridPos": { "h": 8, "w": 12, "x": 12, "y": 8 },
+      "targets": [
+        { "expr": "histogram_quantile(0.95, sum by (le) (rate(rag_time_to_first_token_seconds_bucket[5m])))", "legendFormat": "p95" }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Ingestion failures",
+      "type": "timeseries",
+      "gridPos": { "h": 8, "w": 24, "x": 0, "y": 16 },
+      "targets": [
+        { "expr": "increase(rag_ingestion_failures_total[1h])", "legendFormat": "last hour" }
+      ]
+    }
+  ]
+}

@@ -27,6 +27,8 @@ class SourceDocumentSchema(BaseModel):
     chunk_text: str | None = None
     page_number: int | None = None
     section_title: str | None = None
+    slide_number: int | None = None
+    sheet_name: str | None = None
     relevance_score: float | None = None
 
 

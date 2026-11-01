@@ -9,9 +9,20 @@ logger = logging.getLogger(__name__)
 
 
 class ChromaStore:
-    def __init__(self, persist_directory: str, embedding_function) -> None:
+    def __init__(
+        self,
+        persist_directory: str,
+        embedding_function,
+        host: str | None = None,
+        port: int = 8000,
+    ) -> None:
         self._persist_dir = persist_directory
         self._embedding_function = embedding_function
+        self._client = None
+        if host:
+            import chromadb
+
+            self._client = chromadb.HttpClient(host=host, port=port)
         self._collections: dict[str, Chroma] = {}
 
     def _get_collection(self, name: str) -> Chroma:
@@ -21,6 +32,7 @@ class ChromaStore:
                 persist_directory=self._persist_dir,
                 embedding_function=self._embedding_function,
                 collection_metadata={"hnsw:space": "cosine"},
+                client=self._client,
             )
         return self._collections[name]
 
@@ -88,5 +100,5 @@ class ChromaStore:
     def list_collections(self) -> list[str]:
         import chromadb
 
-        client = chromadb.PersistentClient(path=self._persist_dir)
+        client = self._client or chromadb.PersistentClient(path=self._persist_dir)
         return [c.name for c in client.list_collections()]

@@ -1,0 +1,23 @@
+services:
+  api:
+    networks:
+      - private
+  chroma:
+    networks:
+      - private
+  ollama:
+    networks:
+      - private
+  postgres:
+    networks:
+      - private
+  prometheus:
+    networks:
+      - private
+  grafana:
+    networks:
+      - private
+
+networks:
+  private:
+    internal: true

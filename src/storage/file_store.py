@@ -10,7 +10,7 @@ class FileStore:
     def store(self, source_path: str, document_id: str, filename: str) -> str:
         doc_dir = self._base_dir / document_id
         doc_dir.mkdir(parents=True, exist_ok=True)
-        dest = doc_dir / filename
+        dest = doc_dir / Path(filename).name
         shutil.copy2(source_path, dest)
         return str(dest)
 

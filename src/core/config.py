@@ -1,6 +1,7 @@
 from functools import lru_cache
 from pathlib import Path
 
+from pydantic import field_validator
 from pydantic_settings import BaseSettings
 
 
@@ -29,12 +30,22 @@ class Settings(BaseSettings):
     azure_openai_endpoint: str | None = None
 
     chroma_persist_dir: str = "./data/chroma_db"
+    chroma_host: str | None = None
+    chroma_port: int = 8000
+
+    database_url: str | None = None
 
     upload_dir: str = "./data/uploads"
     max_upload_size_mb: int = 50
 
     chunk_size: int = 2048
     chunk_overlap: int = 256
+    redact_pii: bool = True
+
+    @field_validator("chroma_host", "database_url", mode="before")
+    @classmethod
+    def normalize_optional_connection_settings(cls, value):
+        return value or None
 
     default_top_k: int = 5
     default_temperature: float = 0.1

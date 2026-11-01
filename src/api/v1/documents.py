@@ -4,7 +4,11 @@ from pathlib import Path
 from fastapi import APIRouter, Depends, File, Form, HTTPException, UploadFile
 
 from src.core.config import Settings
-from src.core.exceptions import FileTooLargeError, IngestionError, UnsupportedFormatError
+from src.core.exceptions import (
+    IngestionError,
+    IngestionInProgressError,
+    UnsupportedFormatError,
+)
 from src.dependencies import get_file_store, get_ingestion_pipeline, get_settings, get_vector_store
 from src.ingestion.pipeline import IngestionPipeline
 from src.schemas.documents import (
@@ -18,7 +22,17 @@ from src.vectorstore.chroma_store import ChromaStore
 
 router = APIRouter()
 
-ALLOWED_EXTENSIONS = {".pdf", ".docx", ".pptx", ".xlsx", ".html", ".htm", ".md", ".markdown", ".txt"}
+ALLOWED_EXTENSIONS = {
+    ".pdf",
+    ".docx",
+    ".pptx",
+    ".xlsx",
+    ".html",
+    ".htm",
+    ".md",
+    ".markdown",
+    ".txt",
+}
 
 
 @router.post("/upload", response_model=DocumentUploadResponse, status_code=201)
@@ -35,16 +49,21 @@ async def upload_document(
     if ext not in ALLOWED_EXTENSIONS:
         raise HTTPException(
             status_code=415,
-            detail=f"Unsupported file format '{ext}'. Supported: {', '.join(sorted(ALLOWED_EXTENSIONS))}",
+            detail=(
+                f"Unsupported file format '{ext}'. "
+                f"Supported: {', '.join(sorted(ALLOWED_EXTENSIONS))}"
+            ),
+        )
+
+    max_size = settings.max_upload_size_mb * 1024 * 1024
+    content = await file.read(max_size + 1)
+    if len(content) > max_size:
+        raise HTTPException(
+            status_code=413,
+            detail=f"File exceeds maximum size of {settings.max_upload_size_mb}MB",
         )
 
     with tempfile.NamedTemporaryFile(delete=False, suffix=ext) as tmp:
-        content = await file.read()
-        if len(content) > settings.max_upload_size_mb * 1024 * 1024:
-            raise HTTPException(
-                status_code=413,
-                detail=f"File exceeds maximum size of {settings.max_upload_size_mb}MB",
-            )
         tmp.write(content)
         tmp_path = tmp.name
 
@@ -56,6 +75,8 @@ async def upload_document(
         )
     except UnsupportedFormatError as e:
         raise HTTPException(status_code=415, detail=str(e))
+    except IngestionInProgressError as e:
+        raise HTTPException(status_code=409, detail=str(e))
     except IngestionError as e:
         raise HTTPException(status_code=500, detail=str(e))
     finally:
@@ -82,15 +103,22 @@ async def upload_documents_batch(
     results = []
     for file in files:
         if not file.filename:
-            continue
+            raise HTTPException(status_code=400, detail="Every file must have a filename")
         ext = Path(file.filename).suffix.lower()
         if ext not in ALLOWED_EXTENSIONS:
-            continue
+            raise HTTPException(
+                status_code=415,
+                detail=f"Unsupported file format '{ext}'",
+            )
 
+        max_size = settings.max_upload_size_mb * 1024 * 1024
+        content = await file.read(max_size + 1)
+        if len(content) > max_size:
+            raise HTTPException(
+                status_code=413,
+                detail=f"File exceeds maximum size of {settings.max_upload_size_mb}MB",
+            )
         with tempfile.NamedTemporaryFile(delete=False, suffix=ext) as tmp:
-            content = await file.read()
-            if len(content) > settings.max_upload_size_mb * 1024 * 1024:
-                continue
             tmp.write(content)
             tmp_path = tmp.name
 
@@ -111,8 +139,10 @@ async def upload_documents_batch(
                     file_size_bytes=result.file_size_bytes,
                 )
             )
-        except Exception:
-            pass
+        except IngestionInProgressError as e:
+            raise HTTPException(status_code=409, detail=str(e))
+        except IngestionError as e:
+            raise HTTPException(status_code=500, detail=str(e))
         finally:
             Path(tmp_path).unlink(missing_ok=True)
 

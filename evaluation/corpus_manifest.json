@@ -1,0 +1,130 @@
+[
+  {
+    "filename": "01-incident-response.pdf",
+    "document_id": "0fb14f97-223d-5f4a-a42a-0678bfd74909",
+    "sha256": "6948214ed3190f5f38fe092efcdb819d6e7d78b565f724a486e95091f5e1a41e",
+    "collection_name": "default",
+    "format": "pdf",
+    "size_bytes": 3442
+  },
+  {
+    "filename": "02-document-privacy.pdf",
+    "document_id": "abb0e397-0f56-511e-9f64-a483d52be586",
+    "sha256": "df7a10b3108beadeb8b0fe2d30f4da136f9a4120b09ed5c75b6afca58591dde3",
+    "collection_name": "default",
+    "format": "pdf",
+    "size_bytes": 3953
+  },
+  {
+    "filename": "03-release-procedure.docx",
+    "document_id": "09e396b6-778f-527e-bf3a-d8666fae1094",
+    "sha256": "55898eeaa4b3270dc25f2865662e884da1689327db7df4f5a83a8a876f13205f",
+    "collection_name": "default",
+    "format": "docx",
+    "size_bytes": 37134
+  },
+  {
+    "filename": "04-calibration-work-instruction.docx",
+    "document_id": "4b49ff08-69cf-53dc-8884-cfcbbe5053ba",
+    "sha256": "9a2a1a037df6939af84c4db1f80f93c69ae597864cefaad738ae9fa6e632103b",
+    "collection_name": "default",
+    "format": "docx",
+    "size_bytes": 37095
+  },
+  {
+    "filename": "05-support-escalation.docx",
+    "document_id": "9c80bd73-2bf3-50b7-88ed-01a38aff6551",
+    "sha256": "8e578c0cb2c6cc38036306a373fdf109acec0da6c78e58548a54d500a007472c",
+    "collection_name": "default",
+    "format": "docx",
+    "size_bytes": 37118
+  },
+  {
+    "filename": "06-new-member-onboarding.pptx",
+    "document_id": "acbaac32-8696-5704-8c1a-726b96db87e0",
+    "sha256": "3033ae35fa9d7b18700dffcaf8c235386e72eff0edbbf828fa9a6c64abaa5936",
+    "collection_name": "default",
+    "format": "pptx",
+    "size_bytes": 31181
+  },
+  {
+    "filename": "07-service-continuity.pptx",
+    "document_id": "f4945af6-7555-56ea-9c00-1e6ba564c66e",
+    "sha256": "5e3207f05fb75df08e3c00216992a50c982b990997df2ba732bed5bd8ebf0d46",
+    "collection_name": "default",
+    "format": "pptx",
+    "size_bytes": 31197
+  },
+  {
+    "filename": "08-equipment-inventory.xlsx",
+    "document_id": "e096bff2-1608-53f3-9c30-694c8a4685b6",
+    "sha256": "5734f2722acae47877a804bfc20b2d46a2f7fcaf31aa71a7ede6ca4d360924b1",
+    "collection_name": "default",
+    "format": "xlsx",
+    "size_bytes": 5303
+  },
+  {
+    "filename": "09-monthly-service-metrics.xlsx",
+    "document_id": "d769ecd8-ef3a-500c-89cc-aa9a6a804c84",
+    "sha256": "d20cc8ac856753fd6aceb173d2ea8a40f9626ee3150f6bfb330b3a58af12ff7d",
+    "collection_name": "default",
+    "format": "xlsx",
+    "size_bytes": 5171
+  },
+  {
+    "filename": "10-account-access-policy.html",
+    "document_id": "03152732-bd10-544d-964b-f7091841f67e",
+    "sha256": "da0e3e3722e239d7f8875ddef227671cdb21c323060e0a4a1c1d1b86f547146b",
+    "collection_name": "default",
+    "format": "html",
+    "size_bytes": 857
+  },
+  {
+    "filename": "11-backup-operations.html",
+    "document_id": "46a489ad-74b4-567b-920b-776ff2a464fb",
+    "sha256": "47401994ae22b97d5ba626ce27cb5a494e93d7a72b1d5cd866294f14aa760747",
+    "collection_name": "default",
+    "format": "html",
+    "size_bytes": 826
+  },
+  {
+    "filename": "12-rag-evaluation-protocol.md",
+    "document_id": "82da9d46-967e-55ce-903c-865f2efe0ba7",
+    "sha256": "1d7b3f7ed0b1f39981ac22b80ac9d5e8c892fe785044a6dc64863818e764104d",
+    "collection_name": "default",
+    "format": "md",
+    "size_bytes": 955
+  },
+  {
+    "filename": "13-document-retention.md",
+    "document_id": "c9ea42bd-f12c-58af-b41d-df1f42b8a60e",
+    "sha256": "66f8be1fd4d4157169bb1c3d549f88bff403f559b5be95b144bb244168ad7966",
+    "collection_name": "default",
+    "format": "md",
+    "size_bytes": 905
+  },
+  {
+    "filename": "14-local-deployment-checklist.md",
+    "document_id": "ee7dc063-926e-54a9-ba8b-7b809bba1bbd",
+    "sha256": "7be7b572e9013ae4b4177ac577c752a318c8c206675b0076200ecbc9cc4db245",
+    "collection_name": "default",
+    "format": "md",
+    "size_bytes": 951
+  },
+  {
+    "filename": "15-workshop-glossary.txt",
+    "document_id": "fd724497-9094-5d0c-9039-a6a737882933",
+    "sha256": "211113e11dd9e8d03fcba1868a1bd60d13f2c21205e3a6c5a845684a63bdfc39",
+    "collection_name": "default",
+    "format": "txt",
+    "size_bytes": 594
+  },
+  {
+    "filename": "16-facilities-emergency-card.txt",
+    "document_id": "ec3f6e11-4310-5acd-9c58-fb6d98d6e930",
+    "sha256": "23d8bdfd4d6854a53487e4913356f4c50516e7d188de68173fdfd6a3759b3bff",
+    "collection_name": "default",
+    "format": "txt",
+    "size_bytes": 681
+  }
+]

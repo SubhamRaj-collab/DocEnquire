@@ -1,0 +1,13 @@
+Northstar Workshop Glossary
+
+Priority P1 means a production outage affecting all members or confirmed loss of member data.
+
+Priority P2 means a degraded feature with a safe workaround.
+
+RPO means recovery point objective: the target maximum period of data changes that may be lost after recovery.
+
+RTO means recovery time objective: the target time to restore a service after an incident.
+
+Smoke check means a short set of checks confirming the primary user workflow works after a deployment or restore.
+
+Collection means a named group of documents indexed together for retrieval.

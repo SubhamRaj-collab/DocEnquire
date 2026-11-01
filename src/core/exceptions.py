@@ -22,6 +22,10 @@ class IngestionError(RAGBaseError):
     pass
 
 
+class IngestionInProgressError(IngestionError):
+    pass
+
+
 class VectorStoreError(RAGBaseError):
     pass
 

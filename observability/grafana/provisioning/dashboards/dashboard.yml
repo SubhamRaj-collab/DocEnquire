@@ -1,0 +1,9 @@
+apiVersion: 1
+
+providers:
+  - name: DocEnquire
+    orgId: 1
+    folder: DocEnquire
+    type: file
+    options:
+      path: /var/lib/grafana/dashboards

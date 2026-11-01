@@ -1,9 +1,14 @@
+import logging
+
 from fastapi import APIRouter, Depends
 from sse_starlette.sse import EventSourceResponse
 
 from src.dependencies import get_rag_pipeline
 from src.rag.pipeline import RAGPipeline
 from src.schemas.query import QueryRequest, QueryResponse
+from src.core.metrics import http_errors
+
+logger = logging.getLogger(__name__)
 
 router = APIRouter()
 
@@ -37,7 +42,9 @@ async def query_documents_stream(
                 temperature=request.temperature,
             ):
                 yield {"data": event}
-        except Exception as e:
-            yield {"event": "error", "data": str(e)}
+        except Exception:
+            http_errors.labels("POST", "/api/v1/query/stream").inc()
+            logger.exception("Streaming query failed")
+            yield {"event": "error", "data": "The query could not be completed"}
 
     return EventSourceResponse(event_generator())

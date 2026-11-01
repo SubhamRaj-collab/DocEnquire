@@ -1,0 +1,90 @@
+services:
+  api:
+    build: .
+    environment:
+      RAG_OLLAMA_BASE_URL: http://ollama:11434
+      RAG_CHROMA_HOST: chroma
+      RAG_CHROMA_PORT: 8000
+      RAG_DATABASE_URL: postgresql://rag:rag@postgres:5432/rag
+      RAG_CHROMA_PERSIST_DIR: /app/data/chroma_db
+      RAG_UPLOAD_DIR: /app/data/uploads
+      RAG_CHUNK_SIZE: ${RAG_CHUNK_SIZE:-2048}
+      RAG_CHUNK_OVERLAP: ${RAG_CHUNK_OVERLAP:-256}
+    ports:
+      - "8000:8000"
+    volumes:
+      - uploads:/app/data/uploads
+    depends_on:
+      postgres:
+        condition: service_healthy
+      chroma:
+        condition: service_started
+      ollama:
+        condition: service_started
+    restart: unless-stopped
+
+  chroma:
+    image: chromadb/chroma:latest
+    command: ["run", "--host", "0.0.0.0", "--port", "8000"]
+    volumes:
+      - chroma_data:/chroma/chroma
+    environment:
+      IS_PERSISTENT: "TRUE"
+      PERSIST_DIRECTORY: /chroma/chroma
+    expose:
+      - "8000"
+    restart: unless-stopped
+
+  ollama:
+    image: ollama/ollama:latest
+    volumes:
+      - ollama_data:/root/.ollama
+    expose:
+      - "11434"
+    restart: unless-stopped
+
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: rag
+      POSTGRES_USER: rag
+      POSTGRES_PASSWORD: rag
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U rag -d rag"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    expose:
+      - "5432"
+    restart: unless-stopped
+
+  prometheus:
+    image: prom/prometheus:v2.55.1
+    volumes:
+      - ./observability/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus_data:/prometheus
+    ports:
+      - "9090:9090"
+    depends_on:
+      - api
+
+  grafana:
+    image: grafana/grafana:11.3.0
+    volumes:
+      - ./observability/grafana/provisioning:/etc/grafana/provisioning:ro
+      - ./observability/grafana/dashboards:/var/lib/grafana/dashboards:ro
+      - grafana_data:/var/lib/grafana
+    ports:
+      - "3000:3000"
+    depends_on:
+      - prometheus
+
+volumes:
+  uploads:
+  chroma_data:
+  ollama_data:
+  postgres_data:
+  prometheus_data:
+  grafana_data:

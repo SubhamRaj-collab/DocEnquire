@@ -1,5 +1,5 @@
 import json
-import logging
+import time
 from collections.abc import AsyncIterator
 from dataclasses import asdict
 
@@ -7,9 +7,8 @@ from src.llm.base import LLMProvider
 from src.rag.citation_parser import CitationParser
 from src.rag.context_builder import ContextBuilder
 from src.rag.retriever import ChromaRetriever
-
-logger = logging.getLogger(__name__)
-
+from src.core.metrics import time_to_first_token
+from src.core.privacy import redact_pii
 
 class RAGPipeline:
     def __init__(
@@ -19,12 +18,14 @@ class RAGPipeline:
         llm_provider: LLMProvider,
         citation_parser: CitationParser,
         system_prompt: str,
+        redact_personal_data: bool = True,
     ) -> None:
         self.retriever = retriever
         self.context_builder = context_builder
         self.llm = llm_provider
         self.citation_parser = citation_parser
         self.system_prompt = system_prompt
+        self.redact_personal_data = redact_personal_data
 
     async def query(
         self,
@@ -34,6 +35,8 @@ class RAGPipeline:
         temperature: float = 0.1,
         metadata_filter: dict | None = None,
     ) -> dict:
+        if self.redact_personal_data:
+            question = redact_pii(question)
         chunks = await self.retriever.retrieve(
             query=question,
             collection_name=collection_name,
@@ -76,6 +79,8 @@ class RAGPipeline:
                     "chunk_text": s.get("chunk_text"),
                     "page_number": s.get("page_number"),
                     "section_title": s.get("section_title"),
+                    "slide_number": s.get("slide_number"),
+                    "sheet_name": s.get("sheet_name"),
                     "relevance_score": s.get("relevance_score"),
                 }
                 for s in source_map
@@ -91,6 +96,9 @@ class RAGPipeline:
         top_k: int = 5,
         temperature: float = 0.1,
     ) -> AsyncIterator[str]:
+        started = time.perf_counter()
+        if self.redact_personal_data:
+            question = redact_pii(question)
         chunks = await self.retriever.retrieve(
             query=question,
             collection_name=collection_name,
@@ -98,7 +106,9 @@ class RAGPipeline:
         )
 
         if not chunks:
-            yield json.dumps({"type": "token", "data": "No relevant documents found for your question."})
+            yield json.dumps(
+                {"type": "token", "data": "No relevant documents found for your question."}
+            )
             yield json.dumps({"type": "done", "data": None})
             return
 
@@ -109,13 +119,16 @@ class RAGPipeline:
             f"QUESTION: {question}\n\n"
             f"Provide your answer with source citations as instructed."
         )
-
         accumulated = ""
+        observed_first_token = False
         async for token in self.llm.stream(
             prompt=user_prompt,
             system_prompt=self.system_prompt,
             temperature=temperature,
         ):
+            if not observed_first_token:
+                time_to_first_token.observe(time.perf_counter() - started)
+                observed_first_token = True
             accumulated += token
             yield json.dumps({"type": "token", "data": token})
 
