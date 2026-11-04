@@ -1,0 +1,61 @@
+{
+  "answer": "I don't have enough information in the provided documents to answer this question.",
+  "citations": [],
+  "source_documents": [
+    {
+      "document_id": "03152732-bd10-544d-964b-f7091841f67e",
+      "filename": "10-account-access-policy.html",
+      "chunk_text": "Northstar Workshop Account Access Policy",
+      "page_number": null,
+      "section_title": "Northstar Workshop Account Access Policy",
+      "slide_number": null,
+      "sheet_name": null,
+      "relevance_score": 0.32403797
+    },
+    {
+      "document_id": "09e396b6-778f-527e-bf3a-d8666fae1094",
+      "filename": "03-release-procedure.docx",
+      "chunk_text": "Northstar Workshop Release Procedure",
+      "page_number": null,
+      "section_title": null,
+      "slide_number": null,
+      "sheet_name": null,
+      "relevance_score": 0.27419168
+    },
+    {
+      "document_id": "46a489ad-74b4-567b-920b-776ff2a464fb",
+      "filename": "11-backup-operations.html",
+      "chunk_text": "Northstar Workshop Backup Operations",
+      "page_number": null,
+      "section_title": "Northstar Workshop Backup Operations",
+      "slide_number": null,
+      "sheet_name": null,
+      "relevance_score": 0.32881337
+    },
+    {
+      "document_id": "4b49ff08-69cf-53dc-8884-cfcbbe5053ba",
+      "filename": "04-calibration-work-instruction.docx",
+      "chunk_text": "Northstar Workshop Calibration Work Instruction",
+      "page_number": null,
+      "section_title": null,
+      "slide_number": null,
+      "sheet_name": null,
+      "relevance_score": 0.3335616
+    },
+    {
+      "document_id": "9c80bd73-2bf3-50b7-88ed-01a38aff6551",
+      "filename": "05-support-escalation.docx",
+      "chunk_text": "Northstar Workshop Support Escalation Guide",
+      "page_number": null,
+      "section_title": null,
+      "slide_number": null,
+      "sheet_name": null,
+      "relevance_score": 0.3440739
+    }
+  ],
+  "model": "gemma2:2b",
+  "usage": {
+    "prompt_tokens": 402,
+    "completion_tokens": 140
+  }
+}

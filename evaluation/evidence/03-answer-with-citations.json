@@ -1,0 +1,73 @@
+{
+  "answer": "The incident commander for all production incidents is Maya Chen. [SOURCE_2]",
+  "citations": [
+    {
+      "source_label": "[SOURCE_2]",
+      "document_id": "0fb14f97-223d-5f4a-a42a-0678bfd74909",
+      "filename": "01-incident-response.pdf",
+      "page_number": 1,
+      "section_title": "Northstar Workshop | Incident Response Playbook",
+      "slide_number": null,
+      "sheet_name": null,
+      "chunk_text": "The incident commander for all production incidents is Maya Chen. The incident commander assigns an operations lead an Severity and acknowledgement",
+      "relevance_score": 0.1118623
+    }
+  ],
+  "source_documents": [
+    {
+      "document_id": "0fb14f97-223d-5f4a-a42a-0678bfd74909",
+      "filename": "01-incident-response.pdf",
+      "chunk_text": "Incident command",
+      "page_number": 1,
+      "section_title": "Northstar Workshop | Incident Response Playbook",
+      "slide_number": null,
+      "sheet_name": null,
+      "relevance_score": 0.16729805
+    },
+    {
+      "document_id": "0fb14f97-223d-5f4a-a42a-0678bfd74909",
+      "filename": "01-incident-response.pdf",
+      "chunk_text": "The incident commander for all production incidents is Maya Chen. The incident commander assigns an operations lead an Severity and acknowledgement",
+      "page_number": 1,
+      "section_title": "Northstar Workshop | Incident Response Playbook",
+      "slide_number": null,
+      "sheet_name": null,
+      "relevance_score": 0.1118623
+    },
+    {
+      "document_id": "0fb14f97-223d-5f4a-a42a-0678bfd74909",
+      "filename": "01-incident-response.pdf",
+      "chunk_text": "During a P1, the communications lead posts an update every 30 minutes in the status channel. The incident commander re Review",
+      "page_number": 1,
+      "section_title": "Northstar Workshop | Incident Response Playbook",
+      "slide_number": null,
+      "sheet_name": null,
+      "relevance_score": 0.34018588
+    },
+    {
+      "document_id": "0fb14f97-223d-5f4a-a42a-0678bfd74909",
+      "filename": "01-incident-response.pdf",
+      "chunk_text": "Within five business days of closing a P1, the incident commander schedules a blameless review and assigns owners and",
+      "page_number": 1,
+      "section_title": "Northstar Workshop | Incident Response Playbook",
+      "slide_number": null,
+      "sheet_name": null,
+      "relevance_score": 0.3094556
+    },
+    {
+      "document_id": "9c80bd73-2bf3-50b7-88ed-01a38aff6551",
+      "filename": "05-support-escalation.docx",
+      "chunk_text": "A P1 is a production outage affecting all members or a confirmed loss of member data. Acknowledge within 10 minutes, page the incident commander, and keep the reporter updated every 30 minutes.",
+      "page_number": null,
+      "section_title": "Priority P1",
+      "slide_number": null,
+      "sheet_name": null,
+      "relevance_score": 0.34780008
+    }
+  ],
+  "model": "gemma2:2b",
+  "usage": {
+    "prompt_tokens": 534,
+    "completion_tokens": 95
+  }
+}

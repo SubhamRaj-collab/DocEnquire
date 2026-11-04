@@ -99,7 +99,24 @@ New-Item -ItemType Directory -Force evaluation\evidence
 
 The runner checks for 50 to 60 records and at least 12 unanswerable questions. It stores
 answers, retrieved document IDs, sources, citations, and abstention flags in
-`baseline.json`. Keep this raw file; do not overwrite it with another run.
+`baseline.json`, checkpoints after every completed answer, and defaults to a 600-second
+response timeout with one retry for temporary network timeouts. Progress is printed
+for every question. Keep this raw file; do not overwrite it with another run. If a
+request still fails, the partial results stay in the output file; after checking the
+API is healthy, resume with the same questions and options plus `--resume`:
+
+```powershell
+.\.venv\Scripts\python.exe evaluation\evaluate.py `
+  --questions evaluation\questions.jsonl `
+  --output evaluation\baseline.json `
+  --label baseline `
+  --resume
+```
+
+The runner skips question IDs already checkpointed. It refuses to resume if the
+question set, label, endpoint, or top-k differs. Increase the timeout if a slow model
+still exceeds it, for example with `--timeout-seconds 900`. Do not score or manually
+label the run until its metadata status is `completed`.
 
 ## 7. Manually label at least 20 baseline answers
 

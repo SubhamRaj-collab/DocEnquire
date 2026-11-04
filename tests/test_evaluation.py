@@ -1,4 +1,6 @@
-from evaluation.evaluate import score_records
+import json
+
+from evaluation.evaluate import load_resume_records, score_records, write_run
 
 
 def test_evaluation_metrics_and_unlabeled_review_handling() -> None:
@@ -29,3 +31,21 @@ def test_evaluation_metrics_and_unlabeled_review_handling() -> None:
     assert metrics["unanswerable_abstention_rate"] == 1
     assert metrics["human_reviewed_count"] == 2
     assert metrics["at_least_20_human_reviews"] is False
+
+
+def test_partial_run_checkpoint_can_resume_completed_records(tmp_path) -> None:
+    output = tmp_path / "baseline.json"
+    question = {
+        "id": "q1",
+        "question": "Question?",
+        "relevant_document_ids": [],
+        "unanswerable": True,
+        "answer": "I don't have enough information.",
+    }
+
+    write_run(output, {"label": "baseline"}, [question], "failed", 2)
+
+    stored = json.loads(output.read_text(encoding="utf-8"))
+    assert stored["metadata"]["status"] == "failed"
+    assert stored["metadata"]["completed_count"] == 1
+    assert load_resume_records(output, [question, {"id": "q2"}]) == [question]
