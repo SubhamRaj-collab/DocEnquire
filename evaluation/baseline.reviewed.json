@@ -95,7 +95,9 @@
           "relevance_score": 0.1118623
         }
       ],
-      "abstained": false
+      "abstained": false,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false
     },
     {
       "id": "a002",
@@ -179,7 +181,9 @@
           "relevance_score": 0.2562993
         }
       ],
-      "abstained": false
+      "abstained": false,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false
     },
     {
       "id": "a003",
@@ -274,7 +278,9 @@
           "relevance_score": 0.27880055
         }
       ],
-      "abstained": false
+      "abstained": false,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false
     },
     {
       "id": "a004",
@@ -359,7 +365,9 @@
           "relevance_score": 0.19450694
         }
       ],
-      "abstained": false
+      "abstained": false,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false
     },
     {
       "id": "a005",
