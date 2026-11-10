@@ -1781,7 +1781,7 @@
       "abstained": false,
       "human_answer_correct": false,
       "human_contains_unsupported_claims": true,
-      "human_review_note": "The answer differs from the reference answer, and none of the retrieved sources supports it."
+      "human_review_note": "The reference answer is present in the relevant document, but the model's answer is incorrect and none of its retrieved sources or citations supports the reference answer."
     },
     {
       "id": "a021",
@@ -2213,9 +2213,10 @@
           "relevance_score": 0.34558845
         }
       ],
-      "abstained": false,
       "human_answer_correct": true,
-      "human_contains_unsupported_claims": false
+      "human_contains_unsupported_claims": false,
+      "human_citation_correct": false,
+      "human_review_note": "The answer is supported by a retrieved source document, but the citation does not point to that supporting source."
     },
     {
       "id": "a026",
@@ -2564,7 +2565,9 @@
       ],
       "abstained": false,
       "human_answer_correct": true,
-      "human_contains_unsupported_claims": false
+      "human_contains_unsupported_claims": false,
+      "human_review_note": "The provided reference_answer is incorrect; the model answer matches the source document.",
+      "human_corrected_reference_answer": "24 safety goggles are available."
     },
     {
       "id": "a030",
@@ -3722,9 +3725,9 @@
         }
       ],
       "abstained": false,
-      // "human_answer_correct": true,
-      // "human_contains_unsupported_claims": false
-      // doubt
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false,
+      "human_review_note": "The answer is correct and supported by the retrieved source document. The reference_answer is a short version of the answer and it does not contains all the key words"
     },
     {
       "id": "a043",
@@ -3898,7 +3901,8 @@
       ],
       "abstained": false,
       "human_answer_correct": true,
-      "human_contains_unsupported_claims": false
+      "human_contains_unsupported_claims": false,
+      "human_review_note": "The answer and the citation are correct. The citation has all the keywords but the answer doesn't have many"
     },
     {
       "id": "u001",
@@ -4345,7 +4349,11 @@
           "relevance_score": 0.5077754
         }
       ],
-      "abstained": true
+      "abstained": true,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false,
+      "human_citation_correct": false,
+      "human_review_note": "The answer correctly abstains, but the citation points to an irrelevant source."
     },
     {
       "id": "u007",
@@ -4428,7 +4436,8 @@
       "abstained": true,
       "human_answer_correct": true,
       "human_contains_unsupported_claims": false,
-      "human_review_note": "Correctly abstained; the reference documents do not contain the answer."  
+      "human_citation_correct": false,
+      "human_review_note": "The answer correctly abstains, but the citation points to an irrelevant source." 
     },
     {
       "id": "u008",
@@ -4571,7 +4580,10 @@
         }
       ],
       "citations": [],
-      "abstained": true
+      "abstained": true,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false,
+      "human_review_note": "Correctly abstained; the reference documents do not contain the answer."  
     },
     {
       "id": "u010",
@@ -4694,7 +4706,11 @@
           "relevance_score": 0.4528005
         }
       ],
-      "abstained": true
+      "abstained": true,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false,
+      "human_citation_correct": false,
+      "human_review_note": "Correctly abstained; the reference documents do not contain the answer. There are multiple citations too in this case, but none of them contain the answer."  
     },
     {
       "id": "u011",
@@ -4763,7 +4779,10 @@
         }
       ],
       "citations": [],
-      "abstained": true
+      "abstained": true,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false,
+      "human_review_note": "Correctly abstained; the reference documents do not contain the answer."  
     },
     {
       "id": "u012",
@@ -4834,7 +4853,10 @@
         }
       ],
       "citations": [],
-      "abstained": true
+      "abstained": true,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false,
+      "human_review_note": "Correctly abstained; the reference documents do not contain the answer."  
     }
   ],
   "metrics": {
