@@ -1866,7 +1866,9 @@
           "relevance_score": 0.29621467
         }
       ],
-      "abstained": false
+      "abstained": false,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false
     },
     {
       "id": "a022",
@@ -1950,7 +1952,9 @@
           "relevance_score": 0.32433432
         }
       ],
-      "abstained": false
+      "abstained": false,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false
     },
     {
       "id": "a023",
@@ -2035,7 +2039,9 @@
           "relevance_score": 0.30284733
         }
       ],
-      "abstained": false
+      "abstained": false,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false
     },
     {
       "id": "a024",
@@ -2120,7 +2126,9 @@
           "relevance_score": 0.21635014
         }
       ],
-      "abstained": false
+      "abstained": false,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false
     },
     {
       "id": "a025",
@@ -2205,7 +2213,9 @@
           "relevance_score": 0.34558845
         }
       ],
-      "abstained": false
+      "abstained": false,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false
     },
     {
       "id": "a026",
@@ -2290,7 +2300,9 @@
           "relevance_score": 0.23116589
         }
       ],
-      "abstained": false
+      "abstained": false,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false
     },
     {
       "id": "a027",
@@ -2376,7 +2388,9 @@
           "relevance_score": 0.1400472
         }
       ],
-      "abstained": false
+      "abstained": false,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false
     },
     {
       "id": "a028",
@@ -2460,7 +2474,9 @@
           "relevance_score": 0.21836752
         }
       ],
-      "abstained": false
+      "abstained": false,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false
     },
     {
       "id": "a029",
@@ -2546,7 +2562,9 @@
           "relevance_score": 0.29044813
         }
       ],
-      "abstained": false
+      "abstained": false,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false
     },
     {
       "id": "a030",
@@ -2632,7 +2650,9 @@
           "relevance_score": 0.2974059
         }
       ],
-      "abstained": false
+      "abstained": false,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false
     },
     {
       "id": "a031",
@@ -2716,7 +2736,9 @@
           "relevance_score": 0.39160904
         }
       ],
-      "abstained": false
+      "abstained": false,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false
     },
     {
       "id": "a032",
@@ -2801,7 +2823,9 @@
           "relevance_score": 0.25528085
         }
       ],
-      "abstained": false
+      "abstained": false,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false
     },
     {
       "id": "a033",
@@ -2885,7 +2909,9 @@
           "relevance_score": 0.38407883
         }
       ],
-      "abstained": false
+      "abstained": false,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false
     },
     {
       "id": "a034",
@@ -2970,7 +2996,9 @@
           "relevance_score": 0.171662
         }
       ],
-      "abstained": false
+      "abstained": false,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false
     },
     {
       "id": "a035",
@@ -3088,7 +3116,9 @@
           "relevance_score": 0.2739848
         }
       ],
-      "abstained": false
+      "abstained": false,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false
     },
     {
       "id": "a036",
@@ -3173,7 +3203,9 @@
           "relevance_score": 0.14307162
         }
       ],
-      "abstained": false
+      "abstained": false,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false
     },
     {
       "id": "a037",
@@ -3256,7 +3288,9 @@
           "relevance_score": 0.076861024
         }
       ],
-      "abstained": false
+      "abstained": false,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false
     },
     {
       "id": "a038",
@@ -3341,7 +3375,9 @@
           "relevance_score": 0.103524
         }
       ],
-      "abstained": false
+      "abstained": false,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false
     },
     {
       "id": "a039",
@@ -3426,7 +3462,9 @@
           "relevance_score": 0.17464066
         }
       ],
-      "abstained": false
+      "abstained": false,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false
     },
     {
       "id": "a040",
@@ -3511,7 +3549,9 @@
           "relevance_score": 0.22800767
         }
       ],
-      "abstained": false
+      "abstained": false,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false
     },
     {
       "id": "a041",
@@ -3595,7 +3635,9 @@
           "relevance_score": 0.28777438
         }
       ],
-      "abstained": false
+      "abstained": false,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false
     },
     {
       "id": "a042",
@@ -3679,7 +3721,10 @@
           "relevance_score": 0.3162206
         }
       ],
-      "abstained": false
+      "abstained": false,
+      // "human_answer_correct": true,
+      // "human_contains_unsupported_claims": false
+      // doubt
     },
     {
       "id": "a043",
@@ -3764,7 +3809,9 @@
           "relevance_score": 0.2168907
         }
       ],
-      "abstained": false
+      "abstained": false,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false
     },
     {
       "id": "a044",
@@ -3849,7 +3896,9 @@
           "relevance_score": 0.12922928
         }
       ],
-      "abstained": false
+      "abstained": false,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false
     },
     {
       "id": "u001",
@@ -3920,7 +3969,10 @@
         }
       ],
       "citations": [],
-      "abstained": true
+      "abstained": true,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false,
+      "human_review_note": "Correctly abstained; the reference documents do not contain the answer."
     },
     {
       "id": "u002",
@@ -3991,7 +4043,10 @@
         }
       ],
       "citations": [],
-      "abstained": true
+      "abstained": true,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false,
+      "human_review_note": "Correctly abstained; the reference documents do not contain the answer."  
     },
     {
       "id": "u003",
@@ -4062,7 +4117,10 @@
         }
       ],
       "citations": [],
-      "abstained": true
+      "abstained": true,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false,
+      "human_review_note": "Correctly abstained; the reference documents do not contain the answer."  
     },
     {
       "id": "u004",
@@ -4132,7 +4190,10 @@
         }
       ],
       "citations": [],
-      "abstained": true
+      "abstained": true,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false,
+      "human_review_note": "Correctly abstained; the reference documents do not contain the answer."  
     },
     {
       "id": "u005",
@@ -4200,7 +4261,10 @@
         }
       ],
       "citations": [],
-      "abstained": true
+      "abstained": true,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false,
+      "human_review_note": "Correctly abstained; the reference documents do not contain the answer."  
     },
     {
       "id": "u006",
@@ -4361,7 +4425,10 @@
           "relevance_score": 0.39484
         }
       ],
-      "abstained": true
+      "abstained": true,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false,
+      "human_review_note": "Correctly abstained; the reference documents do not contain the answer."  
     },
     {
       "id": "u008",
@@ -4431,7 +4498,10 @@
         }
       ],
       "citations": [],
-      "abstained": true
+      "abstained": true,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false,
+      "human_review_note": "Correctly abstained; the reference documents do not contain the answer."  
     },
     {
       "id": "u009",
