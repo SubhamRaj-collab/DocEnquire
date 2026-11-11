@@ -727,8 +727,8 @@
         }
       ],
       "abstained": false,
-      "human_answer_correct": true,
-      "human_contains_unsupported_claims": false
+      "human_answer_correct": false,
+      "human_contains_unsupported_claims": true
     },
     {
       "id": "a009",
@@ -827,7 +827,8 @@
       ],
       "abstained": false,
       "human_answer_correct": true,
-      "human_contains_unsupported_claims": false
+      "human_contains_unsupported_claims": false,
+      "human_citation_correct": false
     },
     {
       "id": "a010",
@@ -1693,7 +1694,8 @@
       ],
       "abstained": false,
       "human_answer_correct": true,
-      "human_contains_unsupported_claims": true,
+      "human_contains_unsupported_claims": false,
+      "human_citation_correct": false,
       "human_review_note": "The fact is supported by another source document, but the cited source does not support it."
     },
     {
@@ -1781,6 +1783,7 @@
       "abstained": false,
       "human_answer_correct": false,
       "human_contains_unsupported_claims": true,
+      "human_citation_correct": false,
       "human_review_note": "The reference answer is present in the relevant document, but the model's answer is incorrect and none of its retrieved sources or citations supports the reference answer."
     },
     {
@@ -2564,10 +2567,10 @@
         }
       ],
       "abstained": false,
-      "human_answer_correct": true,
-      "human_contains_unsupported_claims": false,
-      "human_review_note": "The provided reference_answer is incorrect; the model answer matches the source document.",
-      "human_corrected_reference_answer": "24 safety goggles are available."
+      "human_answer_correct": false,
+      "human_contains_unsupported_claims": true,
+      "human_review_note": "The provided reference_answer is correct; the model answer does not matches the reference_answer.",
+      "human_corrected_reference_answer": "20 safety goggles are available."
     },
     {
       "id": "a030",
@@ -4050,7 +4053,7 @@
       "abstained": true,
       "human_answer_correct": true,
       "human_contains_unsupported_claims": false,
-      "human_review_note": "Correctly abstained; the reference documents do not contain the answer."  
+      "human_review_note": "Correctly abstained; the reference documents do not contain the answer."
     },
     {
       "id": "u003",
@@ -4124,7 +4127,7 @@
       "abstained": true,
       "human_answer_correct": true,
       "human_contains_unsupported_claims": false,
-      "human_review_note": "Correctly abstained; the reference documents do not contain the answer."  
+      "human_review_note": "Correctly abstained; the reference documents do not contain the answer."
     },
     {
       "id": "u004",
@@ -4197,7 +4200,7 @@
       "abstained": true,
       "human_answer_correct": true,
       "human_contains_unsupported_claims": false,
-      "human_review_note": "Correctly abstained; the reference documents do not contain the answer."  
+      "human_review_note": "Correctly abstained; the reference documents do not contain the answer."
     },
     {
       "id": "u005",
@@ -4268,7 +4271,7 @@
       "abstained": true,
       "human_answer_correct": true,
       "human_contains_unsupported_claims": false,
-      "human_review_note": "Correctly abstained; the reference documents do not contain the answer."  
+      "human_review_note": "Correctly abstained; the reference documents do not contain the answer."
     },
     {
       "id": "u006",
@@ -4437,7 +4440,7 @@
       "human_answer_correct": true,
       "human_contains_unsupported_claims": false,
       "human_citation_correct": false,
-      "human_review_note": "The answer correctly abstains, but the citation points to an irrelevant source." 
+      "human_review_note": "The answer correctly abstains, but the citation points to an irrelevant source."
     },
     {
       "id": "u008",
@@ -4510,7 +4513,7 @@
       "abstained": true,
       "human_answer_correct": true,
       "human_contains_unsupported_claims": false,
-      "human_review_note": "Correctly abstained; the reference documents do not contain the answer."  
+      "human_review_note": "Correctly abstained; the reference documents do not contain the answer."
     },
     {
       "id": "u009",
@@ -4583,7 +4586,7 @@
       "abstained": true,
       "human_answer_correct": true,
       "human_contains_unsupported_claims": false,
-      "human_review_note": "Correctly abstained; the reference documents do not contain the answer."  
+      "human_review_note": "Correctly abstained; the reference documents do not contain the answer."
     },
     {
       "id": "u010",
@@ -4710,7 +4713,7 @@
       "human_answer_correct": true,
       "human_contains_unsupported_claims": false,
       "human_citation_correct": false,
-      "human_review_note": "Correctly abstained; the reference documents do not contain the answer. There are multiple citations too in this case, but none of them contain the answer."  
+      "human_review_note": "Correctly abstained; the reference documents do not contain the answer. There are multiple citations too in this case, but none of them contain the answer."
     },
     {
       "id": "u011",
@@ -4782,7 +4785,7 @@
       "abstained": true,
       "human_answer_correct": true,
       "human_contains_unsupported_claims": false,
-      "human_review_note": "Correctly abstained; the reference documents do not contain the answer."  
+      "human_review_note": "Correctly abstained; the reference documents do not contain the answer."
     },
     {
       "id": "u012",
@@ -4856,17 +4859,17 @@
       "abstained": true,
       "human_answer_correct": true,
       "human_contains_unsupported_claims": false,
-      "human_review_note": "Correctly abstained; the reference documents do not contain the answer."  
+      "human_review_note": "Correctly abstained; the reference documents do not contain the answer."
     }
   ],
   "metrics": {
     "question_count": 56,
     "retrieval_hit_rate_at_k": 1.0,
     "retrieval_denominator": 44,
-    "answer_accuracy_human_reviewed": null,
-    "hallucination_rate_human_reviewed": null,
-    "human_reviewed_count": 0,
-    "at_least_20_human_reviews": false,
+    "answer_accuracy_human_reviewed": 0.9464285714285714,
+    "hallucination_rate_human_reviewed": 0.05357142857142857,
+    "human_reviewed_count": 56,
+    "at_least_20_human_reviews": true,
     "unanswerable_abstention_rate": 1.0,
     "unanswerable_denominator": 12
   }
