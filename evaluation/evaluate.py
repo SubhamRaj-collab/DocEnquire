@@ -38,7 +38,6 @@ def score_records(records: list[dict]) -> dict:
         if isinstance(record.get("human_answer_correct"), bool)
         and isinstance(record.get("human_contains_unsupported_claims"), bool)
     ]
-
     return {
         "question_count": len(records),
         "retrieval_hit_rate_at_k": (

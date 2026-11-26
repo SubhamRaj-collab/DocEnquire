@@ -545,8 +545,11 @@
           "relevance_score": 0.17114043
         }
       ],
-      "abstained": false
-      // check the source doc
+      "abstained": false,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false,
+      "human_citation_correct": true,
+      "human_comments": "There is some problem in the source document. The reference answer has the problem also displayed. But the answer correctly states the full sentence."
     },
     {
       "id": "a007",
@@ -745,8 +748,9 @@
       ],
       "abstained": false,
       "human_answer_correct": false,
-      "human_contains_unsupported_claims": false,
+      "human_contains_unsupported_claims": true,
       "human_citation_correct": false,
+      "human_review_note": "The answer incorrectly says all three roles can upload or delete documents. The documents grant different permissions: only workshop administrators may upload or delete; the cited roles passage does not support the answer.",
       "human_citation_comments": "support documents have the correct answer but the answer is wrong and only one among multiple citations point to the right answer."
     },
     {
@@ -845,7 +849,10 @@
         }
       ],
       "abstained": false,
-      //check the answer in the referenced document
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false,
+      "human_citation_correct": false,
+      "human_comments": "Wrong relevant document is specified. Only 2 types are asked, extra one is also written in asnwer. The answer carefully categorizes the different objects in reference answer into types."
     },
     {
       "id": "a010",
@@ -1017,7 +1024,10 @@
           "relevance_score": 0.11821681
         }
       ],
-      "abstained": false
+      "abstained": false,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false,
+      "human_citation_correct": true
     },
     {
       "id": "a012",
@@ -1103,7 +1113,10 @@
           "relevance_score": 0.15692338
         }
       ],
-      "abstained": false
+      "abstained": false,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false,
+      "human_citation_correct": true
     },
     {
       "id": "a013",
@@ -1188,7 +1201,10 @@
           "relevance_score": 0.08423275
         }
       ],
-      "abstained": false
+      "abstained": false,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false,
+      "human_citation_correct": true
     },
     {
       "id": "a014",
@@ -1272,7 +1288,10 @@
           "relevance_score": 0.24803075
         }
       ],
-      "abstained": false
+      "abstained": false,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false,
+      "human_citation_correct": true
     },
     {
       "id": "a015",
@@ -1357,7 +1376,10 @@
           "relevance_score": 0.254574
         }
       ],
-      "abstained": false
+      "abstained": false,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false,
+      "human_citation_correct": true
     },
     {
       "id": "a016",
@@ -1441,7 +1463,10 @@
           "relevance_score": 0.2704146
         }
       ],
-      "abstained": false
+      "abstained": false,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false,
+      "human_citation_correct": true
     },
     {
       "id": "a017",
@@ -1525,7 +1550,10 @@
           "relevance_score": 0.34034517
         }
       ],
-      "abstained": false
+      "abstained": false,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false,
+      "human_citation_correct": true
     },
     {
       "id": "a018",
@@ -1610,7 +1638,11 @@
           "relevance_score": 0.35986885
         }
       ],
-      "abstained": false
+      "abstained": false,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false,
+      "human_citation_correct": true,
+      "human_answer_comments": "The answer is correct but does miss out few key words"
     },
     {
       "id": "a019",
@@ -1694,7 +1726,10 @@
           "relevance_score": 0.39395303
         }
       ],
-      "abstained": false
+      "abstained": false,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false,
+      "human_citation_correct": false
     },
     {
       "id": "a020",
@@ -1778,7 +1813,11 @@
           "relevance_score": 0.09416619
         }
       ],
-      "abstained": false
+      "abstained": false,
+      "human_answer_correct": false,
+      "human_contains_unsupported_claims": true,
+      "human_citation_correct": false,
+      "human_answer_comments": "The reference_answer shows the correct answer but the answer is incorrect. The citation is also incorrect."
     },
     {
       "id": "a021",
@@ -1863,7 +1902,10 @@
           "relevance_score": 0.29621467
         }
       ],
-      "abstained": false
+      "abstained": false,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false,
+      "human_citation_correct": true
     },
     {
       "id": "a022",
@@ -1947,7 +1989,10 @@
           "relevance_score": 0.32433432
         }
       ],
-      "abstained": false
+      "abstained": false,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false,
+      "human_citation_correct": false
     },
     {
       "id": "a023",
@@ -2032,7 +2077,10 @@
           "relevance_score": 0.30284733
         }
       ],
-      "abstained": false
+      "abstained": false,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false,
+      "human_citation_correct": true
     },
     {
       "id": "a024",
@@ -2117,7 +2165,10 @@
           "relevance_score": 0.21635014
         }
       ],
-      "abstained": false
+      "abstained": false,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false,
+      "human_citation_correct": true
     },
     {
       "id": "a025",
@@ -2202,7 +2253,10 @@
           "relevance_score": 0.34558845
         }
       ],
-      "abstained": false
+      "abstained": false,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false,
+      "human_citation_correct": false
     },
     {
       "id": "a026",
@@ -2287,7 +2341,10 @@
           "relevance_score": 0.23116589
         }
       ],
-      "abstained": false
+      "abstained": false,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false,
+      "human_citation_correct": true
     },
     {
       "id": "a027",
@@ -2373,7 +2430,10 @@
           "relevance_score": 0.1400472
         }
       ],
-      "abstained": false
+      "abstained": false,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false,
+      "human_citation_correct": true
     },
     {
       "id": "a028",
@@ -2457,7 +2517,10 @@
           "relevance_score": 0.21836752
         }
       ],
-      "abstained": false
+      "abstained": false,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false,
+      "human_citation_correct": true
     },
     {
       "id": "a029",
@@ -2543,7 +2606,11 @@
           "relevance_score": 0.29044813
         }
       ],
-      "abstained": false
+      "abstained": false,
+      "human_answer_correct": false,
+      "human_contains_unsupported_claims": true,
+      "human_citation_correct": false,
+      "human_review_note": "The table gives 24 total goggles, with 20 available and 4 under inspection. The answer incorrectly calls 24 available, which the cited passage does not support."
     },
     {
       "id": "a030",
@@ -2629,7 +2696,10 @@
           "relevance_score": 0.43420178
         }
       ],
-      "abstained": false
+      "abstained": false,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false,
+      "human_citation_correct": false
     },
     {
       "id": "a031",
@@ -2713,7 +2783,10 @@
           "relevance_score": 0.39160904
         }
       ],
-      "abstained": false
+      "abstained": false,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false,
+      "human_citation_correct": false
     },
     {
       "id": "a032",
@@ -2798,7 +2871,10 @@
           "relevance_score": 0.25528085
         }
       ],
-      "abstained": false
+      "abstained": false,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false,
+      "human_citation_correct": false
     },
     {
       "id": "a033",
@@ -2882,7 +2958,10 @@
           "relevance_score": 0.38407883
         }
       ],
-      "abstained": false
+      "abstained": false,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false,
+      "human_citation_correct": true
     },
     {
       "id": "a034",
@@ -2967,7 +3046,10 @@
           "relevance_score": 0.171662
         }
       ],
-      "abstained": false
+      "abstained": false,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false,
+      "human_citation_correct": true
     },
     {
       "id": "a035",
@@ -3063,7 +3145,11 @@
           "relevance_score": 0.37244874
         }
       ],
-      "abstained": false
+      "abstained": false,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false,
+      "human_citation_correct": true,
+      "human_comments": "There is one unrelated citation present in citations"
     },
     {
       "id": "a036",
@@ -3148,7 +3234,10 @@
           "relevance_score": 0.14307162
         }
       ],
-      "abstained": false
+      "abstained": false,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false,
+      "human_citation_correct": true
     },
     {
       "id": "a037",
@@ -3231,7 +3320,10 @@
           "relevance_score": 0.076861024
         }
       ],
-      "abstained": false
+      "abstained": false,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false,
+      "human_citation_correct": true
     },
     {
       "id": "a038",
@@ -3316,7 +3408,10 @@
           "relevance_score": 0.103524
         }
       ],
-      "abstained": false
+      "abstained": false,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false,
+      "human_citation_correct": true
     },
     {
       "id": "a039",
@@ -3401,7 +3496,10 @@
           "relevance_score": 0.17464066
         }
       ],
-      "abstained": false
+      "abstained": false,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false,
+      "human_citation_correct": true
     },
     {
       "id": "a040",
@@ -3486,7 +3584,10 @@
           "relevance_score": 0.22800767
         }
       ],
-      "abstained": false
+      "abstained": false,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false,
+      "human_citation_correct": true
     },
     {
       "id": "a041",
@@ -3570,7 +3671,10 @@
           "relevance_score": 0.28777438
         }
       ],
-      "abstained": false
+      "abstained": false,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false,
+      "human_citation_correct": true
     },
     {
       "id": "a042",
@@ -3654,7 +3758,11 @@
           "relevance_score": 0.3162206
         }
       ],
-      "abstained": false
+      "abstained": false,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false,
+      "human_citation_correct": true,
+      "human_comments": "answer is correct. reference_answer is not complete."
     },
     {
       "id": "a043",
@@ -3739,7 +3847,10 @@
           "relevance_score": 0.2168907
         }
       ],
-      "abstained": false
+      "abstained": false,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false,
+      "human_citation_correct": true
     },
     {
       "id": "a044",
@@ -3824,7 +3935,10 @@
           "relevance_score": 0.12922928
         }
       ],
-      "abstained": false
+      "abstained": false,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false,
+      "human_citation_correct": true
     },
     {
       "id": "u001",
@@ -3895,7 +4009,10 @@
         }
       ],
       "citations": [],
-      "abstained": true
+      "abstained": true,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false,
+      "human_citation_correct": true
     },
     {
       "id": "u002",
@@ -3966,7 +4083,10 @@
         }
       ],
       "citations": [],
-      "abstained": true
+      "abstained": true,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false,
+      "human_citation_correct": true
     },
     {
       "id": "u003",
@@ -4037,7 +4157,10 @@
         }
       ],
       "citations": [],
-      "abstained": true
+      "abstained": true,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false,
+      "human_citation_correct": true
     },
     {
       "id": "u004",
@@ -4107,7 +4230,10 @@
         }
       ],
       "citations": [],
-      "abstained": true
+      "abstained": true,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false,
+      "human_citation_correct": true
     },
     {
       "id": "u005",
@@ -4175,7 +4301,10 @@
         }
       ],
       "citations": [],
-      "abstained": true
+      "abstained": true,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false,
+      "human_citation_correct": true
     },
     {
       "id": "u006",
@@ -4244,7 +4373,10 @@
         }
       ],
       "citations": [],
-      "abstained": true
+      "abstained": true,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false,
+      "human_citation_correct": true
     },
     {
       "id": "u007",
@@ -4312,7 +4444,10 @@
         }
       ],
       "citations": [],
-      "abstained": true
+      "abstained": true,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false,
+      "human_citation_correct": true
     },
     {
       "id": "u008",
@@ -4382,7 +4517,10 @@
         }
       ],
       "citations": [],
-      "abstained": true
+      "abstained": true,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false,
+      "human_citation_correct": true
     },
     {
       "id": "u009",
@@ -4452,7 +4590,10 @@
         }
       ],
       "citations": [],
-      "abstained": true
+      "abstained": true,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false,
+      "human_citation_correct": true
     },
     {
       "id": "u010",
@@ -4519,7 +4660,10 @@
         }
       ],
       "citations": [],
-      "abstained": true
+      "abstained": true,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false,
+      "human_citation_correct": true
     },
     {
       "id": "u011",
@@ -4588,7 +4732,10 @@
         }
       ],
       "citations": [],
-      "abstained": true
+      "abstained": true,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false,
+      "human_citation_correct": true
     },
     {
       "id": "u012",
@@ -4659,17 +4806,20 @@
         }
       ],
       "citations": [],
-      "abstained": true
+      "abstained": true,
+      "human_answer_correct": true,
+      "human_contains_unsupported_claims": false,
+      "human_citation_correct": true
     }
   ],
   "metrics": {
     "question_count": 56,
     "retrieval_hit_rate_at_k": 1.0,
     "retrieval_denominator": 44,
-    "answer_accuracy_human_reviewed": null,
-    "hallucination_rate_human_reviewed": null,
-    "human_reviewed_count": 0,
-    "at_least_20_human_reviews": false,
+    "answer_accuracy_human_reviewed": 0.9464285714285714,
+    "hallucination_rate_human_reviewed": 0.05357142857142857,
+    "human_reviewed_count": 56,
+    "at_least_20_human_reviews": true,
     "unanswerable_abstention_rate": 1.0,
     "unanswerable_denominator": 12
   }

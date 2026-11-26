@@ -114,11 +114,27 @@ dashboard panels to populate and capture.
 
 ## Evaluation status
 
-No evaluation score is claimed yet. This checkout now contains a self-authored
-synthetic 16-document corpus and 56 manually authored questions, but no human-reviewed
-labels or completed before/after model run. Scores must be collected against the
-provided corpus and pinned model versions; generating results without that run would
-be misleading.
+Two completed runs are available for the self-authored synthetic corpus: the original
+prompt baseline and a prompt-v2 run with stricter citation and abstention instructions.
+Both use the same 56-question set (44 answerable, 12 unanswerable), `top_k=5`, and the
+same model configuration recorded in their run metadata. All 56 answers in each run
+were human-reviewed.
+
+| Metric | Baseline | Prompt v2 |
+|---|---:|---:|
+| Retrieval hit rate@5 | 44/44 (100%) | 44/44 (100%) |
+| Human-reviewed answer accuracy | 53/56 (94.64%) | 53/56 (94.64%) |
+| Human-reviewed unsupported-claim rate | 3/56 (5.36%) | 3/56 (5.36%) |
+| Unanswerable abstention | 12/12 (100%) | 12/12 (100%) |
+
+These results show no measured change in retrieval, answer accuracy, unsupported
+claims, or abstention from the prompt update.
+
+The corpus is self-authored and synthetic, not a public corpus. One PDF's extracted
+text is truncated/garbled, which affected at least one answer. These results therefore
+demonstrate a controlled experiment on a small synthetic dataset, not general RAG
+quality or public-corpus performance. The human labels are project-owner judgments,
+not independent inter-annotator measurements.
 
 The evaluation runner is at [evaluation/evaluate.py](./evaluation/evaluate.py). A
 JSONL question row contains `id`, `question`, `relevant_document_ids`, and
@@ -138,18 +154,19 @@ follow the [evaluation runbook](./evaluation/RUNBOOK.md) for exact commands, hum
 labeling, comparison, and evidence capture. The files are generated for this project
 and contain no real organizational material or personal data.
 
-Recommended report format for the completed run:
+A separate NIST CSF 2.0 public-source corpus has now been assembled at
+[evaluation/nist_csf/](./evaluation/nist_csf/). It contains 17 documents across the
+seven supported formats and has not yet been evaluated. The synthetic results above
+do not apply to it; create a new question set and run a fresh baseline/prompt-v2
+comparison for the public corpus.
 
-| Configuration | Retrieval hit rate@5 | Answer accuracy (human-reviewed) | Hallucination rate (human-reviewed) | Unanswerable abstention |
-|---|---:|---:|---:|---:|
-| Baseline | Not measured | Not measured | Not measured | Not measured |
-| Changed chunk size or prompt | Not measured | Not measured | Not measured | Not measured |
-
-Use 50–60 questions with at least 12 unanswerable cases, label at least 20 outputs,
-and compare any automated judge against those human labels. Preserve the corpus
-license, question set, model/version, prompt, and run output with the report. Report
-limitations alongside scores (especially corpus size, parser coverage, and judge
-agreement).
+The exact prompt snapshots are preserved at
+[evaluation/rag_system.baseline.txt](./evaluation/rag_system.baseline.txt) and
+[evaluation/rag_system.prompt-v2.txt](./evaluation/rag_system.prompt-v2.txt). The
+human-reviewed result files are
+[baseline.reviewed.json](./evaluation/baseline.reviewed.json) and
+[prompt-v2.reviewed.json](./evaluation/prompt-v2.reviewed.json); raw model outputs are
+preserved separately.
 
 ## Design decisions and trade-offs
 
